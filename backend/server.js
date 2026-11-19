@@ -8,6 +8,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/authRoutes');
 const pizzaRoutes = require('./routes/pizzaRoutes');
 const orderRoutes = require('./routes/orderRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/pizza', pizzaRoutes);
 app.use('/api/orders', orderRoutes);
-
+app.use('/api/admin', adminRoutes);
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ MongoDB connected successfully'))
